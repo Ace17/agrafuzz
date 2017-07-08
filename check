@@ -3,4 +3,6 @@ set -euo pipefail
 
 make -j`nproc`
 
-g++ -c test/test_1.cpp -fplugin=bin/plugin.so
+g++ -c test/test_1.cpp -fplugin=bin/plugin.so -o bin/test_1.o
+g++ -c test/driver.cpp -o bin/driver.o
+g++ bin/driver.o bin/test_1.o -o bin/test.exe
