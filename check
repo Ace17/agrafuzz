@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+make -j`nproc`
+
+g++ -c test/test_1.cpp -fplugin=bin/plugin.so
